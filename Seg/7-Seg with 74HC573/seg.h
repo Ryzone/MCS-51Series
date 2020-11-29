@@ -6,9 +6,9 @@
 #define u8 unsigned char
 #define u16 unsigned int
 	
-
-#endif
 extern u8 segbuf[];
 extern u8 segcom;
 
-extern void seg();
+extern void seg(void);
+
+#endif
