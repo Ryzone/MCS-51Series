@@ -15,5 +15,5 @@ void Button(unsigned char keyval)
 void KeyScan()
 {
 	P3 = 0x0F;
-	if(P3 & 0x0F)Button(P3 & 0x0F ^ 0x0F);
+	if(P3 & 0x0F ^ 0x0F)Button(P3 & 0x0F ^ 0x0F);
 }
