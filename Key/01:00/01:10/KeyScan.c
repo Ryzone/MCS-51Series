@@ -27,5 +27,5 @@ void KeyScan()
 	{
 		Delay80ms();
 		if(!BTN)key = 1;
-		
+	}
 }
