@@ -4,7 +4,6 @@
 #include <STC15F2K60S2.H>
 
 extern unsigned char key,Kick,Keybuf;
-extern unsigned int keytime;
 
 extern void KeyScan(); 
 
