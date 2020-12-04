@@ -1,6 +1,6 @@
 #include "KEYSCAN.H"
 
-unsigned char key = 0,Kick = 0,Keybuf = 0;
+unsigned char key = 0,Kick = 0;
 
 void Keyboard(unsigned char keyval)
 {
@@ -8,6 +8,7 @@ void Keyboard(unsigned char keyval)
 }
 void KeyScan()
 {
+	static unsigned char Keybuf;
 	static unsigned int Keytime;
 	unsigned char temp;
 
