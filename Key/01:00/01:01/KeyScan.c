@@ -1,19 +1,31 @@
 #include "KEYSCAN.H"
 
-unsigned char key = 0;
+sbit BTN = P3^0;
+bit key = 0;
 
-void Button(unsigned char keyval)
+void Delay80ms()
 {
-	switch(keyval)
+	unsigned char i, j, k;
+
+	_nop_();
+	_nop_();
+	i = 4;
+	j = 93;
+	k = 155;
+	do
 	{
-		case 0x01 : key = 1;break;
-		case 0x02 : key = 2;break;
-		case 0x04 : key = 3;break;
-		case 0x08 : key = 4;break;
-	}
+		do
+		{
+			while (--k);
+		} while (--j);
+	} while (--i);
 }
 void KeyScan()
 {
-	P3 = 0x0F;
-	if(P3 & 0x0F ^ 0x0F)Button(P3 & 0x0F ^ 0x0F);
+	BTN = 1;
+	if(!BTN)
+	{
+		Delay80ms();
+		if(!BTN)key = 1;
+	}
 }
