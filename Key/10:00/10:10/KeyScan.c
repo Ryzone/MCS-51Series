@@ -9,22 +9,24 @@ void Keyboard(unsigned char keyval)
 void KeyScan()
 {
 	static unsigned int keytime;
-	unsigned char key_buf;
+	unsigned char keybuf;
 	
 	P3 = 0x0F;
 	
 	if(P3 & 0x0F ^ 0x0F)keytime++;
 	else keytime = 0;	
 	
-	if(keytime>=500)Kick = 2;
-	else if(keytime>=80)
-		{
-			P3 = 0x0F;
-			key_buf = P3 & 0x0F ^ 0x0F;
-			P3 = 0xF0;
-			key_buf |= P3 & 0xF0 ^ 0xF0;
-			Keyboard(key_buf);
-			Kick = 1;
-		}
+	if(keytime>=80)
+	{
+		if(keytime>=500)Kick = 2;
+		else Kick = 1;
+		
+		P3 = 0x0F;
+		keybuf = P3 & 0x0F ^ 0x0F;
+		P3 = 0xF0;
+		keybuf |= P3 & 0xF0 ^ 0xF0;
+		
+		Keyboard(keybuf);
+	}
 	else Kick = 0;
-} 
+}
