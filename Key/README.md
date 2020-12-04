@@ -1,7 +1,6 @@
+Buttons
 
-The self-cultivation of keys
-
-按键的自我修养
+按键的N种写法
 
 MCU，英文全称 Microcontroller Unit，即微控制单元
 SOC，英文全称 System On Chip，又称片上系统
@@ -10,7 +9,7 @@ SOC，英文全称 System On Chip，又称片上系统
 
 即便是检测按键这样一个基础的控制任务，如何完成，如何更好地完成，就有许多内容值得一讲
 
-现在，我们就来深挖一下按键那些事
+现在，我们就来深挖一下按键的自我修养那些事 The self-cultivation of keys
 
 首先，我将按键处理分为一下几种指标：
 效率:功能
