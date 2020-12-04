@@ -3,7 +3,6 @@
 unsigned char key = 0,Kick = 0,Keybuf = 0;
 unsigned int Keytime;
 
-
 void Keyboard(unsigned char keyval)
 {
 	key = keyval;
