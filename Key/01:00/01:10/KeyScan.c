@@ -23,6 +23,9 @@ void Delay80ms()
 void KeyScan()
 {
 	BTN = 1;
-	Delay80ms();
-	if(!BTN)key = 1;
+	if(!BTN)
+	{
+		Delay80ms();
+		if(!BTN)key = 1;
+		
 }
