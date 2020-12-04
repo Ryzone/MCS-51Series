@@ -10,20 +10,20 @@ void Keyboard(unsigned char keyval)
 }
 void KeyScan()
 {
-	unsigned char scan;
+	unsigned char Trg;
 
 	P3 = 0x0F;
-	scan = P3 & 0x0F ^ 0x0F;
+	Trg = P3 & 0x0F ^ 0x0F;
 	P3 = 0xF0;
-	scan |= P3 & 0xF0 ^ 0xF0;
+	Trg |= P3 & 0xF0 ^ 0xF0;
 	
-	if(Keybuf ^ scan)
+	if(Keybuf ^ Trg)
 	{
 		if(Keytime >= 1200)Kick = 2;
 		else if(Keytime >= 80)Kick = 1;
 		
 		Keyboard(Keybuf);
-		Keybuf = scan;
+		Keybuf = Trg;
 		
 		Keytime = 0;
 	}
