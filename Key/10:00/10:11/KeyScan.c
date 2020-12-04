@@ -9,20 +9,23 @@ void Keyboard(unsigned char keyval)
 void KeyScan()
 {
 	static unsigned int Keytime;
-	unsigned char Trg;
+	unsigned char temp;
 
 	P3 = 0x0F;
-	Trg = P3 & 0x0F ^ 0x0F;
+	temp = P3 & 0x0F ^ 0x0F;
 	P3 = 0xF0;
-	Trg |= P3 & 0xF0 ^ 0xF0;
+	temp |= P3 & 0xF0 ^ 0xF0;
 	
-	if(Keybuf ^ Trg)
+	if(Keybuf ^ temp)
 	{
-		if(Keytime >= 1200)Kick = 2;
-		else if(Keytime >= 80)Kick = 1;
+		if(Keytime >= 80)
+		{
+			if(Keytime >= 1200)Kick = 2;
+			else Kick = 1;
+			Keyboard(Keybuf);
+		}
 		
-		Keyboard(Keybuf);
-		Keybuf = Trg;
+		Keybuf = temp;
 		
 		Keytime = 0;
 	}
