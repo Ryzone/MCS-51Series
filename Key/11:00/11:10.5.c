@@ -32,6 +32,7 @@ void KeyScan()
 	{
 		key = state = temp;
 		Kick = 9;
+		Kickbuf = 0;
 		(Keytime >= 800) ? Keytime = 1000 : 0;
 	}
 	else if(Keytime >= 250 && Keytime < 500)
