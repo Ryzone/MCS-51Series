@@ -27,15 +27,15 @@ void KeyScan()
 		Keytime = !Keytime;
 	}
 	else if(Keytime >= 500 && (Keytime % 50) == 0 && Keytime < 1000)
-	{
-		key = State = temp;
-		Kick = 255;
-		Kickbuf = 0;
-		(Keytime >= 800) ? Keytime = 1000 : 0;
-	}
-	else if(Keytime >= 250 && Keytime < 500)
-	{
-		if(Kickbuf)Kick = Kickbuf;
-		Kickbuf = 0;
-	}
+		{
+			key = State = temp;
+			Kick = 255;
+			Kickbuf = 0;
+			(Keytime >= 800) ? Keytime = 1000 : 0;
+		}
+		else if(Keytime >= 250 && Keytime < 500)
+		{
+			if(Kickbuf)Kick = Kickbuf;
+			Kickbuf = 0;
+		}
 }
